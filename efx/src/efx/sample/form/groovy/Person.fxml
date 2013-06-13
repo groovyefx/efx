@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="508.0" xmlns:fx="http://javafx.com/fxml" fx:controller="efx.sample.form.groovy.PersonFormController">
+  <children>
+    <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="73.0" prefWidth="117.0" text="姓名" />
+    <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="102.0" prefWidth="117.0" text="年龄" />
+    <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="134.0" prefWidth="117.0" text="性别" />
+    <TextField fx:id="personName" layoutX="206.0" layoutY="70.0" prefWidth="200.0" />
+    <TextField fx:id="age" layoutX="206.0" layoutY="99.0" prefWidth="200.0" />
+    <ComboBox id="genderCombo" fx:id="gender" layoutX="206.0" layoutY="132.0" prefHeight="21.0" prefWidth="200.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList" />
+      </items>
+    </ComboBox>
+    <Button layoutX="206.0" layoutY="178.0" mnemonicParsing="false" onAction="#commit" prefWidth="62.0" text="提交" />
+    <Button layoutX="294.0" layoutY="178.0" mnemonicParsing="false" onAction="#reset" prefWidth="62.0" text="重置" />
+  </children>
+</AnchorPane>
