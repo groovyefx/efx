@@ -44,7 +44,7 @@ class Person extends AbstractModel{
 	@Bind(value = "genderOption",direction = BindDirection.Unidirectional, targetProperty = "value")
 	String gender 
 	
-	Option genderOption
+	Option genderOption  
 	
 	@Override
 	public boolean validate(AbstractModel model) {

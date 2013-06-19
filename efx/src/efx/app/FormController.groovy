@@ -419,8 +419,6 @@ public abstract class FormController extends Controller {
 			ImageView marker = new ImageView(new Image(getClass().getResourceAsStream("/efx/resource/exclamation.png")));
 			marker.setVisible(false);
 			marker.setId("error-icon");
-			marker.setTranslateX(4);
-			marker.setTranslateY(-4);
 			annotatedNode.getAnnotations().add(marker);
 			pane.getChildren().add(annotatedNode);
 			return annotatedNode;

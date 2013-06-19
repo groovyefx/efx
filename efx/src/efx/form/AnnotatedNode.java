@@ -113,9 +113,10 @@ public class AnnotatedNode extends StackPane
         for (Node annotation : annotations)
         {
             Bounds annotationBounds = annotation.getLayoutBounds();
+            
             annotation.relocate(
-                    width - annotationBounds.getWidth() + annotation.getTranslateX(),
-                    height - annotationBounds.getHeight() + annotation.getTranslateY());
+                    width - annotationBounds.getWidth()/2,
+                    -annotationBounds.getHeight()/2);
         }
     }
 

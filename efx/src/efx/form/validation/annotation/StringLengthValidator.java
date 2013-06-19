@@ -40,12 +40,12 @@ public @interface StringLengthValidator {
 	 * 在编写properties文件时，消息内容可通过{min}来引用min()的返回值
 	 * @return
 	 */
-	int min();
+	int min() default 0;
 	/**
 	 * 在编写properties文件时，消息内容可通过{max}来引用max()的返回值
 	 * @return
 	 */
-	int max();
+	int max() default Integer.MAX_VALUE;
 	
 	boolean trim() default true;
 }

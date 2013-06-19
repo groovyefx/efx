@@ -25,8 +25,11 @@ import java.util.ResourceBundle;
 
 import javafx.beans.value.WritableValue;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.util.BuilderFactory;
+import javafx.util.Callback;
 import efx.util.StringUtil;
   
 /**
@@ -36,6 +39,19 @@ import efx.util.StringUtil;
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class FxmlLoader {
+	
+	private static BuilderFactory builderFactory = new JavaFXBuilderFactory();
+	
+	private static Callback controllerFactory = null;
+	
+	public static void setBuilderFactory(BuilderFactory builderFactory){
+		FxmlLoader.builderFactory = builderFactory;
+	}
+	
+	public static void setControllerFactory(Callback callback){
+		controllerFactory = callback;
+	}
+	
 	/**
 	 * 
 	 * @param fxmlUrl
@@ -112,7 +128,7 @@ public class FxmlLoader {
 
 	private static Activity loadActivity(URL fxmlUrl, String styleSheets, ResourceBundle bundle, boolean initScene) {
 		Activity activity = new Activity();
-		FXMLLoader loader = new FXMLLoader(fxmlUrl, bundle);
+		FXMLLoader loader = new FXMLLoader(fxmlUrl, bundle, builderFactory, controllerFactory);
 		try {
 			Parent page = (Parent) loader.load();
 			activity.setPage(page);
