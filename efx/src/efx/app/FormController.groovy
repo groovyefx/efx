@@ -144,7 +144,7 @@ public abstract class FormController extends Controller {
 		}
 	}
 
-	def doInit(){
+	def doInit(Closure c = null){
 		Field[] controllerFields = getClass().getDeclaredFields();
 		def modelFieldMap = processModelAnnotation(controllerFields)
 		processBindAnnotation(controllerFields, modelFieldMap);
@@ -152,6 +152,11 @@ public abstract class FormController extends Controller {
 		modelFieldMap.each {k,v->		
 			processModelInnerBinding(v.get(this))
 		}
+		
+		if(c){
+			c()
+		}
+		
 	}
 
 	/**

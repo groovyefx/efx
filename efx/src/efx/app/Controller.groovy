@@ -90,14 +90,14 @@ public abstract class Controller implements Initializable {
 			addStyleSheets("style.css");
 		}
 
-		Field[] fields = getClass().getDeclaredFields();
+		/*Field[] fields = getClass().getDeclaredFields();
 		for(field in fields){
 			if(field.getAnnotation(FXML.class) && field.getType() == TableColumn.class){
 				field.setAccessible(true)
 				// 初始表格列绑定的属性值名称为表格列变量名
 				field.get(this).setCellValueFactory(new PropertyValueFactory(field.getName()))
 			}
-		}
+		}*/
 	}
 
 	private void addStyleSheets(String... name) {
