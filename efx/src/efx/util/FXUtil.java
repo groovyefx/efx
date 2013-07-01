@@ -24,11 +24,13 @@ import javafx.animation.ScaleTransitionBuilder;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
@@ -136,11 +138,22 @@ public class FXUtil {
 		}		
 		stage.initModality(sc.getModality());
 		stage.initOwner(sc.getOwner());
+		if(sc.getFullScreen()){
+			setFullScreen(stage);
+		}
 		if (sc.isDraggable()) {
 			FXUtil.makeWindowDraggable(stage);
 		}
 
 		return stage;
+	}
+	
+	public static void setFullScreen(Stage stage){
+		Rectangle2D rec = Screen.getPrimary().getBounds();			
+		stage.setHeight(rec.getHeight());
+		stage.setWidth(rec.getWidth());
+		stage.setX(0);
+		stage.setY(0);
 	}
 
 	public static Stage createStage(StageConfig sc) {
