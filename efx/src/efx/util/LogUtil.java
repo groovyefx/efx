@@ -17,14 +17,20 @@ public class LogUtil {
 
     private final static Logger logger = LoggerFactory.getLogger(LogUtil.class);
 
+    private static boolean inited = false;
+    
     public static void initErrorLogStream() {
-        PrintStream syserr = System.err;
-        try {
-            Log4jErrorPrintStream errStream = new Log4jErrorPrintStream(System.err);
-            System.setErr(errStream);
-        } catch (Exception e) {
-            System.setErr(syserr);
-        }
+    	if(!inited){
+    		PrintStream syserr = System.err;
+            try {
+                Log4jErrorPrintStream errStream = new Log4jErrorPrintStream(System.err);
+                System.setErr(errStream);
+            } catch (Exception e) {
+                System.setErr(syserr);
+            }
+            inited = true;
+    	}
+        
     }
 
     public static String toString(Throwable e) {
